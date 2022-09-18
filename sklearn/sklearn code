@@ -1,0 +1,45 @@
+Загрузка датасетов:
+	from sklearn.datasets import fetch_openml - функция для загрузки датасета
+	mnist = fetch_openml('название') - загружаем все данные о датасете
+	mnist.keys() - ключи
+	mnist["data"], mnist["target"] - Данные и метки
+
+Линейные моделки:
+	from sklearn.linear_model import SGDClassifier
+	sgd_clf = SGDClassifier() - создаем экземпляр
+	sgd_clf.fit(данные на вход, правильный ответ) - обучаем 
+	sgd_clf.predict(массив) - предсказываем значения
+	sgd_clf.decision_function(массив) - очки для каждого значения
+
+Проверки:
+	from sklearn.model_selection import cross_val_score 
+	cross_val_score(Модель, Данные, ответы, cv=3 (по скольким блокам), scoring='accuracy' (по какой штуке тестируем))
+	
+	from sklearn.model_selection import cross_val_predict - будет возвращать оценки
+	cross_val_predict(Модель, дата, ответы, cv=3 (по скольким блокам), method=''(если хотим получить результат функции решения) ) - Дает ответы функции решения. Методы: decision_funcion, predict_proba
+	scores = probas[:,1] - из пробы получить score
+	
+	from sklearn.metrics import confusion_matrix
+	confusion_matrix(Правильные ответы, Ответы модели) - строит матрицу неточностей
+	Строка - фактический класс
+	Столбец - спрогнозированный класс
+	
+Полнота, точность и их производные:
+	from sklearn.metrics import precision_score, recall_score, f1_score, precision_recall_curve
+	precision_score(Правильные ответы, Ответы модели) - точность
+	recall_score(Правильные ответы, Ответы модели) - полнота
+	
+	f1_score(Правильные ответы, Ответы модели) - мера
+	
+	точность, полнота, порого(скоры) = precision_recall_curve(Правильные ответы, Ответы функции решения) - точность и полнота для всех возможных значений порога функции решений
+	
+	from sklearn.metrics import roc_auc_score
+	roc_auc_score(Правильные ответы, Ответы функции решения)
+	
+	
+	
+	
+	
+
+Свои модельки:
+	from sklearn.base import BaseEstimator - импортируем базовый класс. Должен содержать методы fit и predict
