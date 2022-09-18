@@ -1,0 +1,7 @@
+import request, Flask
+
+request.args.getList('arg') - список get query
+
+form_data = request.get_data(as_text=True) - получить данные из post
+data_obj = json.loads(form_data) - загрузить их как json
+array1 = request.form.getlist('array1', type=int) - получить данные из post

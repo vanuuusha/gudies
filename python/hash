@@ -1,0 +1,6 @@
+import hashlib
+виды хэш функций - MD5, ssh
+print(hashlib.algorithms_available) - список доступных алгоритмов хэширования
+
+hasher = hashlib.md5(mystring.encode()) - зашэширофать в md5 
+hasher.hexdigest() - результат хэширования

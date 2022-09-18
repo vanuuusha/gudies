@@ -1,0 +1,30 @@
+logger = logging.getLogger("password_checker") - получить логгер с именем
+
+logger.exception('Вы ввели некорректный символ', exc_info=ex) - логгер с инфой об ошибки (как error)
+
+logging.basicConfig(level=logging.DEBUG) - базовая конфигурация для логера
+
+ch = logging.StreamHandler() - слушатель строки
+ch.setLevel(logging.DEBUG) - ставим левл для слушателя
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s') - создает формат
+ch.setFormatter(formatter) - добавляем формат к слушателю
+logger.addHandler(ch) - добавляем слушатель к логгеру
+
+logging.baseConfig(datefmt='%d-%b-%y %H:%M:%S') - настраивает формат asctime
+
+
+
+logging.basicConfig(filename='skillbox_json_messages.log', level=logging.DEBUG,
+                        format='{"time": "%(asctime)s", '
+                               '"name": "%(name)s", '
+                               '"level": "%(levelname)s", '
+                               '"message": %(message)s}',
+                        datefmt='%H:%M:%S') - базовая конфигурация
+                        
+                        
+logger = JsonAdapter(logging.getLogger(__name__)) - логгер который будет изменять сообщение при его отправке куда-либо
+
+
+class JsonAdapter(logging.LoggerAdapter): - по какому правилу будт изменятся сообщения
+    def process(self, msg, kwargs):
+        return new_message, kwargs

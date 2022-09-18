@@ -1,0 +1,27 @@
+import subprocess - позволяет запустить скрипт из питона
+import shlex - нужен для токенизирования
+
+
+commnad = shlex.split(commnad_str) - правильно токенизирует команду
+subprocess.run(['python', 'test_program.py']) - запуск команды из питона (токенезирование аргументы)
+subprocess.run(['python', 'test_program.py'], input=b'some\nanother') - при желании прочитать данные читает до \n при следующем желании до след \nы
+
+suprocess.Popen(command) - не блокирует текущий процесс
+suprocess.Popen(command, stdout=subprocess.PIPE, stdout=subprocess.PIPE) - создаем связь между родительским и дочерним потоками
+Можно использовать контекстный менеджер для автозакрытия процесса
+
+process = subprocess.Popen('/bin/bash', stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE) - для ввода в консоль
+for cmd in commands:
+    process.stdin.write(bytes(cmd + '\n', encoding='utf-8'))
+process.stdin.close() - закрываем поток ввода
+
+
+import sys
+data = sys.stdin.read() - получить данные из потока ввода
+
+
+parent = psutil.Process(proc.pid) - убить всех детей потока
+        for child in parent.children(recursive=True):  # or parent.children() for recursive=False
+            child.kill()
+        parent.kill()
