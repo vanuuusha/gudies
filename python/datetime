@@ -1,0 +1,10 @@
+obj = datetime.strptime(str, format) - получить объект datetime
+date_str = obj.strftime(format) - получить дату в строке в нужном формате
+%m - месяц
+%d - день
+%Y - год
+%H - час
+%M - минута
+%S - секунда
+%B ‒ полное название месяца
+%f - милисекунда

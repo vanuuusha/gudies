@@ -1,0 +1,13 @@
+можно сделать из объекта применив функцию iter:
+iter([1,2,3])
+Любой итератор можно пройти с помощью next.
+Итерируемый объект - любой, у кого есть __iter__.
+Итератор - реализует метод __next__.
+Генераторы - возврат методом yield (генераторы тоже итераторы (способ создания итератора))
+def custom_range(number):
+	index = 0 
+	while index < number:
+	        yield index
+	        index += 1
+range_of_four = custom_range(4)
+next(range_of_four)
