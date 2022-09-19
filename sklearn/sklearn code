@@ -1,4 +1,9 @@
-Проверки:
+Тренировочный и тестовый датасеты:
+	from sklearn.model_selection import train_test_split
+	train_test_split(housing, test_size=0.2, random_state=42) - делит наборы на тестовый и тренировочный
+	from sklearn.model_selection import StratifiedShuffleSplit
+	StratifiedShuffleSplit(n_split=1, test_size=0.2) - делает выборку на основе стран
+
 	from sklearn.model_selection import cross_val_score 
 	cross_val_score(Модель, Данные, ответы, cv=3 (по скольким блокам), scoring='accuracy' (по какой штуке тестируем))
 	

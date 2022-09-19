@@ -1,0 +1,7 @@
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class CombinedAttributesAdder(BaseEstimator, TransformerMixin) - миксин автоматический создает метод fit_transform. Осталось создать методы fit и transform
+	def fit(self, X,y=None) - оценка 
+		return self
+	def transorm(self, X) - модификация объекта
+		return Модифицированный объект

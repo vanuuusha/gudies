@@ -1,0 +1,19 @@
+from sklearn.pipeline import Pipeline
+
+num_pipline = Pipeline([
+	('imputer', SimpleImputer()), - вызовется метод fit transorm
+	(следующий),
+	(последний)
+])
+
+transormed_data = num_pipiline.fit_transorm(housing) - передаем данные в конвеер он их прогонит и вернет
+
+from sklearn.compose import Pipeline
+
+full_pipline = ColumnTransormer([ - конвеер который по разному изменяет разные атриубты
+	("num", num_pipeline, num_attrs), - работа с данными атрибута по конвееру
+	("cat", OneHotEncoder(), cat_attrs)
+])
+
+ready_data = full_pipline(fit_ransform)
+

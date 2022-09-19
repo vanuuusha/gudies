@@ -1,0 +1,11 @@
+import pandas as pd
+
+housing = pd.read_csv(path) - скачивает csv файл
+
+housing.head() - просмотреть начало файла
+housing["ocean_proximity"].info() - информация по ячейкам (их типам и т.д.)
+housing.describe() - информация по каждому о полю о значениях
+
+housing["новый артибут"] = pd.cut(housing["другой атрибут"], bins=[0.,1.5,np.inf], labels=[1,2,3]) - создает новыйй астрибут нарезая другой атрибут по выбранным диапазонам
+
+corr_matrix = housing.corr() - Матрица коээфициентов корреляции

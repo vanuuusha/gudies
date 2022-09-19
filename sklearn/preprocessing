@@ -1,0 +1,2 @@
+from sklearn.preprocessing import StandartScaler(вычитание среднего и делением на стадарное отклонения)
+MinMaxScaler() - в диапазон от 0 до 1
