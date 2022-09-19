@@ -1,0 +1,31 @@
+объект типа root logger создается всегда
+
+root_logger = logging.getLogget() - возвращает root логер
+logger = logging.getLogger("password_checker") - получить логгер с именем
+sublogger = logging.getLogget('logger(название родителя).submodule_logger(название нового ребенка)') - родить от логера ребенка-логера (можно в разных файлах)
+
+handler = logging.StreamHandler() - Создаем слушатель
+formatter = logging.Formatter(fmt="%(levelname)s | %(name)s | %(message)s") ("%(asctime)s - [%(levelname)s] -  %(name)s - (%(filename)s).%(funcName)s %(lineno)s - %(message)s") - все возможные штуки для формата
+logger.addHandler(handler) - добавляем к логгеру слушатель
+handler.setFormatter(formatter) - добавляем к слушателю форма 
+
+logging.basicConfig(level=logging.DEBUG) - базовая конфигурация для логера
+logging.baseConfig(datefmt='%d-%b-%y %H:%M:%S %s') - настраивает формат asctime
+
+logger.propagate = True/False - будет ли лог распространятся наверх (из-за чего сообщение может обработатся несколько раз)
+
+Фишки:
+loggin.info('Hi', extra={'very': 'match'}) - передает дополнительные атрибут в LogRecord, можно обратится по ключу словаря
+с помощью vars(record) в Custom Handler можно просмотреть артибуты. Format подставляет данные именно оттуда, поэтому с помощью extra можно модифицировать формат
+
+logger.exception('Вы ввели некорректный символ', exc_info=ex) - логгер с инфой об ошибки (как error)
+
+                        
+logger = JsonAdapter(logging.getLogger(__name__)) - логгер который будет изменять сообщение при его отправке куда-либо
+
+
+class JsonAdapter(logging.LoggerAdapter): - по какому правилу будт изменятся сообщения
+    def process(self, msg, kwargs):
+        return new_message, kwargs
+        
+    

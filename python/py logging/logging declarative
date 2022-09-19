@@ -1,0 +1,42 @@
+import logging.config
+
+dict_config = {
+    "version": 1, # для обратной совместимости
+    "disable_existing_loggers": False, # выключает чужие модули
+    'formatters': {
+        "base": {
+            "format": '%(name)s || %(levelname)s || %(message)s || %(filename)s.%(funcName)s:%(lineno)s',
+        }
+    },
+    'handlers': {
+        "console": {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'formatter': 'base',
+        },
+        "file": {
+            'class': 'logging.FileHandler',
+            'level': 'DEBUG',
+            'formatter': 'base',
+            'filename': 'logfile.log',
+            'mode': 'a'
+        },
+    },
+    'loggers': {
+        'sub_1': {
+            'level': "INFO",
+            "handlers": ['file', 'console'],
+        },
+        'sub_2': {
+            'level': "DEBUG",
+            "handlers": ['file', 'console'],
+        },
+        'sub_2.sub_sub_1': {
+            'level': "DEBUG",
+            "handlers": ['file', 'console'],
+        },
+    }
+}
+
+logging.config.dictConfig(dict_config) - создаем эти логгеры
+sub_sub_1 = logging.getLogger('sub_2.sub_sub_1')

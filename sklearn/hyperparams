@@ -1,3 +1,26 @@
 from sklearn.model_selection import GridSearchCV
 
+param_grid = [
+	{'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6, 8]},
+	{'bootstap': False, 'n_estimators': [3, 10], 'max_features': [2, 3, 8]},
+] - необходимы оценивать все связки как из перквого, так и из второго словаря
 
+forest_reg = RandomForestRegressor() - создаем какую-то модель
+
+grad_search = GridSearchCV(forest_reg, param_grid, return_train_score=True, scoring="neg_mean_squared_error")
+
+grad_search.fit(X, y) - обучаем со всеми параметрами
+
+grad_search.best_params_ - лучшая связка параметров
+
+grad_search.best_estimator_ - лучшая модель
+
+grad_search.cv_results_ - все результаты
+
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import randint
+
+param_distribs = {
+        'n_estimators': randint(low=1, high=200),
+        'max_features': randint(low=1, high=8),
+    }  - рандомный поиск в диапазоне
