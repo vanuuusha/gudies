@@ -1,0 +1,5 @@
+Загрузка датасетов mnist:
+	from sklearn.datasets import fetch_openml - функция для загрузки датасета
+	mnist = fetch_openml('название') - загружаем все данные о датасете
+	mnist.keys() - ключи
+	mnist["data"], mnist["target"] - Данные и метки
