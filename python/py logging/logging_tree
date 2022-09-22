@@ -1,0 +1,3 @@
+ pip install logging_tree
+ 
+ file_object.write(logging_tree.format.build_description()) - записывает дерево логов в файл

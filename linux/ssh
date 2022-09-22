@@ -1,0 +1,5 @@
+ssh -V - версия ssh
+ssh-keygen -t rsa(алгоритм) -b 2048 -C "Machine" (комментарий) -f название
+ssh -i id_rsa(название ключа) vanusha(пользователь)@130.193.49.58(ипишник)
+sudo nano /etc/ssh/sshd_config - тут можно отключить возможность захода по паролю
+sudo systemctl reload sshd.service - перепрочтение данного файла

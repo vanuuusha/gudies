@@ -1,0 +1,8 @@
+'utils_handler': {
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'formatter': 'base',
+            'interval': 10, - сколько ждать по интервалу
+            'when': 'S', - интервал чего
+            'filename': 'utils_log', 
+            'backupCount': 3, - сколько всего может быть файлов (каждые n времени новый файл)
+}
