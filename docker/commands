@@ -1,0 +1,21 @@
+docker run hello-world - проверка на контенере
+docker run debian echo "Hello world" - запускает контенер и в нем пишет команду
+docker run -i(потоки) -t(подключает к терменалу) debian bash(командная оболочка) - подключение к контенерам
+docker run -H HOST(имя хоста) -i -t debian bash
+docker start -i название - подлючится к уже созданному контенеру
+docker stop название
+
+docker ps -a - список всех контенеров
+docker ps - проссмотр контенеров (активных)
+docker diff имя - разница между образом и контенером
+docker log имя - выведет команды
+
+docker system prune -a - удаление образов, не связанных с контенерами
+docker rm имя - удаляет контенер
+
+docker search ubuntu - ищет образ
+docker pull ubuntu - грузит образ на локальную машину
+docker images - список скаченных образов
+
+docker cp (файлик) (название контенера):/home/dir1 - копирование файлов в контенер
+docker cp (название контенера):/home/dir1 (куда) - также находясь в основной системе вне докера

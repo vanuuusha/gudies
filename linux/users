@@ -1,0 +1,3 @@
+adduser user - создает нового пользователя
+usermod -aG sudo user - выдает группу sudo
+su - username - переключится на пользователя username
