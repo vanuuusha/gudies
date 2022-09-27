@@ -1,0 +1,10 @@
+cursor - сущность, которая устанавливает контанкт с бд
+
+(На примере Sqllite3)
+import sqlite3
+
+with sqlite3.connect("Название бд") as conn - подключится к базе данных
+cursor = conn.corsor() - создаем сущность для работы
+
+cursor.execute() - выполнить запрос
+cursor.fetchall() - получить все результаты запроса

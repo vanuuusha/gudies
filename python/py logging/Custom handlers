@@ -4,7 +4,7 @@ class CustomFileHandler(logging.Handler):
 	def __init__(self, file_name, mode='a'): - инициализация
 		super().__init__()
 	
-	def emit(self, logging.LogRecord): - в этом методе уже записываем куда хотим
+	def emit(self, record): - в этом методе уже записываем куда хотим
 		messafe = self.format(record)
 		
 в деклиративном нужно будет написать "()": наш класс

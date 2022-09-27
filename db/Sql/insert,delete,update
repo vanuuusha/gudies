@@ -1,0 +1,10 @@
+INSERT INTO tablename (column_name1, column_name2, column_name3)
+VANLUES 
+	(value_1, value_2, value_3),
+	(value_1, value_2, value_3)
+	
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE условие;
+
+DELETE FROM table_name WHERE условие;

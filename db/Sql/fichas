@@ -1,0 +1,1 @@
+CAST(column AS FLOAT) - меняет тип данных (в данном случае на Float)
