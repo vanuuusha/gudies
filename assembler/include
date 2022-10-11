@@ -1,0 +1,3 @@
+tasm /zi /zd /q name.asm
+tlink /v name.obj
+td name.exe

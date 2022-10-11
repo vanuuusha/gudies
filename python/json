@@ -1,0 +1,10 @@
+import json
+s - из строки
+
+Сериализация:
+json_string = json.dumps(data) - перекидывает данные в текстовую строку
+json.dump(data, write_file: IO) - записывает данные в IO объект
+
+Десирилизация:
+data = json.loads(json_string) - получить python-словарь из строки
+data = json.load(file: IO) - поучить из python-словарь файла

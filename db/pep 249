@@ -3,8 +3,15 @@ cursor - сущность, которая устанавливает конта�
 (На примере Sqllite3)
 import sqlite3
 
-with sqlite3.connect("Название бд") as conn - подключится к базе данных
+with sqlite3.connect("Название бд") as conn - подключится(создает) к базе данных
 cursor = conn.corsor() - создаем сущность для работы
 
 cursor.execute() - выполнить запрос
 cursor.fetchall() - получить все результаты запроса
+
+
+"CREATE TABLE IF NOT EXISTS peoples ("
+                    "ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+                    " name varchar(255),"
+                    " birthday varchar(255),"
+                    " gender varchar(255));") - создание таблички

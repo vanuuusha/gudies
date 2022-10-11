@@ -1,0 +1,22 @@
+import threading 
+thread = threading.Thread(target=callable, args=(), kwargs) - создает шаблон потока (нельзя одно в скобках)
+thread.start() - начать поток
+thread.join() - ждет пока поток выполнится
+
+from threading import Lock
+LOCK = Lock() 
+with LOCK:  - тот thread, который первым заполучит замок выполнит задачу и отпустит его 
+	код
+.acquire() - захватить замок
+.release() - отпустить замок
+
+threading.Semaphore(4) - инициализация счетчика (устанавливает максимальное кол-во потоков, которые могут завладеть симофором)
+
+
+class Sellar(threading.Thread) - класс, создающий отдельный поток
+в __init__ необходимо вызвать родительский __init__
+.start - запускает метод run у такого класса
+.join - ожидает
+
+thread = threading.Thread(target=callable, deamon=True) - без джойна выпонится один раз
+процесс завершается, когда умирает последний не-демон поток 

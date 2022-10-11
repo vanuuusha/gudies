@@ -1,0 +1,22 @@
+jmp metks - переход на метку
+jmp bx - переход по адресу bx
+jmp word[bx] - переход по адресу в памяти, модержащимуся в bx
+
+JZ - переход если ZF=1
+JNZ - переход если ZF!=1
+JC - переход если CF
+JNC - нет CF
+JS - SF
+JNS - not SF
+JO - OF
+JNO - not OF
+JA - CF=0 и ZF=0
+JNA - CF=1 or ZF=1
+JCXZ (CX=0)
+
+JG (ZF=0 SF=OF)
+JL (SF=OF)
+
+cmp ax,bx - сравнит числа и изменит флаги
+test bl,0000100b - состояния одного бита рещультата
+

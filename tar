@@ -1,0 +1,3 @@
+tar -cf archive.tar - создать архив
+tar -tvf archive
+

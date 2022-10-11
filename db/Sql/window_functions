@@ -1,0 +1,5 @@
+OVER (поле по которому будем разделено)
+
+SELECT ROW_NUMBER() OVER (ORDER BY salary) AS 'row_number', id, salary FROM salaries
+ORDER BY salary
+добавляет к каждой строке номер
