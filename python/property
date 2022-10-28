@@ -1,0 +1,10 @@
+в __init__
+self._x = None
+
+@property
+def x(self)
+
+@x.setter
+
+@x.getter
+

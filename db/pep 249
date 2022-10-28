@@ -5,8 +5,8 @@ import sqlite3
 
 with sqlite3.connect("Название бд") as conn - подключится(создает) к базе данных
 cursor = conn.corsor() - создаем сущность для работы
-
-cursor.execute() - выполнить запрос
+  скрипт)
+cursor.execute(запрос, параметры) - также выполняет скрипт, но на знаки вопроса подставляет переданные параметры
 cursor.fetchall() - получить все результаты запроса
 
 
@@ -15,3 +15,5 @@ cursor.fetchall() - получить все результаты запроса
                     " name varchar(255),"
                     " birthday varchar(255),"
                     " gender varchar(255));") - создание таблички
+                    
+

@@ -1,0 +1,4 @@
+level 0 - single uri. single http
+level 1 - many uri, single http
+level 2 - many uri, multiple http methods
+level 3 - resourse describes own capabylities
