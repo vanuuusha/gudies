@@ -1,0 +1,11 @@
+backgroud - фоновый скрипт, запускается с запуском браузера
+content_scripts - скрипт, отдельный для каждой страницы
+"browser_action": {
+      "default_title": "Configure",
+      "default_icon": ,
+      "default_popup": "popup.html"
+    } - для взаимодействия с расширением
+    
+chrome.runtime.sendMessage("Hello back", func_with_answer())
+
+chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse))

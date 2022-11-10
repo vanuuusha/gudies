@@ -1,0 +1,14 @@
+функциональные выражение - var a = function() - не находятся при первом прочтении (читаются вместе с программой.)
+
+function Dog(name, breed, weight) {
+	this.name = name;
+	this.breed = breed;
+	this.weight = weight;
+	this.bark = function() {};
+} - конструктор классов
+
+var fido = new Dog("Fido", "Mixed", 38)
+
+Dog.prototype - у всех функций (прототип-родитель), ему можно дописать определенный свойства(методы)
+this присваеватеся объекту, метод которого был вызван (в прототипе this указывает на сам объект, а не на прототип)
+func.call(this, params) - вызывает функцию, передавая this
