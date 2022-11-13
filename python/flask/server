@@ -1,0 +1,55 @@
+https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
+
+https://www.youtube.com/watch?v=1DL12n1KkQM&list=PLyaCd9XYVI9BQXrJU3zw3PGs_vcWw7_CD&index=10
+
+nginx - reverse proxy:
+	nginx -s quit - остановка с ожиданием окончания текщих запросов
+	/usr/local/nginx/logs - каталог с логами
+
+gunicorn - :
+	WSGI - спецификация питона, определяющая стандартный интерфейс
+	uWSGI - переводит запросы от веб-сервера в формат, который может обработать приложения
+	uwsgi - быстрый двоичный протокол (для связи между nginx и uWSGI)
+	
+	app - принимает словарь, содержащий пары ключ-значение
+	должен ответить на запрос, и вернуть итерируемый объект-ответ
+	
+	nano wsgi.py - создать точку входа в приложение
+	uwsgi --socket 0.0.0.0:8080 --protocol=http -w wsgi - тестовый запуск
+	
+	nano /etc/systemd/system/myproject.service - создает сервис
+	
+	[Unit]
+	Description=Gunicorn instance to serve myproject
+	After=network.target
+
+	[Service]
+	User=sammy - какой user
+	Group=www-data - группа для работы с nginx
+	WorkingDirectory=/home/sammy/myproject (где создать сокет)
+	Environment="PATH=/home/sammy/myproject/myprojectenv/bin" - ссылка на виртуальную среду (bin)
+	ExecStart=/home/sammy/myproject/myprojectenv/bin/gunicorn --workers 3 --bind 	unix:myproject.sock -m 007 wsgi:app
+	unix socket - быстрые сокеты для связи между nginx и uWSGI
+	[Install]
+	WantedBy=multi-user.target - когда запускать сервис
+	
+	sudo systemctl start myproject - запускает
+	sudo systemctl enable myproject - включает функцию включение при загрузке
+	
+Server config:
+nano /etc/nginx/sites-available/mysite - создание нового файла конфигурации
+server {
+    listen 80;
+    server_name your_domain www.your_domain;
+
+    location / {
+        include proxy_params; - включение необходимых параметров проксирования
+        proxy_pass http://unix:/home/sammy/myproject/myproject.sock; - перенаправление в сокет для проксирования
+    }
+} 
+
+ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled - включаем наши конфигурации
+
+sudo nginx -t - проверка синтаксических ошибок
+
+systemctl restart nginx - перезапуск nginx

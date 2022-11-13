@@ -1,7 +1,6 @@
 enable - войти в привилегированный режим
 show runnig-config - показывает конфигурацию коммутатора
 
-
 configure terminal - переход к настройке терминала
 	hostname new_name - меняет имя 
 	enable passowrd new_password - пароль на exec
@@ -14,6 +13,7 @@ configure terminal - переход к настройке терминала
 	no shutdown - сохранить в startup
 	show ip interface brief - информация по интерфейсам
 	no enable secret - выкл пароль
+	
 line console 0 
 	password new_password - устанавливает пароль 
 	login - на запусук коммутатора

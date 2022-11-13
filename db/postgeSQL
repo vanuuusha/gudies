@@ -1,0 +1,21 @@
+sudo apt install postgresql postgresql-contrib 
+service postgresql status - проверка статуса
+
+sudo -i -u postgres - войти в СУБД как суперпользователь
+dropdb name - удалить бд
+createdb name - создать бд
+
+man psql - документпция
+
+psql - консоль базы данных
+	\l - список баз данных
+	ALTER USER postgres WITH PASSWORD 'qwerty'; - поменять пароль
+	CREATE USER username WITH PASSWORD 'pass'; - создать пользователя
+	ALTER USER username WITH SUPERUSER; - выдать права суперпользователя
+	CREATE DATABASE name; - создает базу данных
+	
+	\du - список пользователей
+	\c dbname - подключиться к бд
+
+    CREATE TABLE request (ID SERIAL PRIMARY KEY, headers TEXT, method TEXT, initiator TEXT, url TEXT, timestamp TEXT, type TEXT, document TEXT, frame TEXT, request TEXT);
+

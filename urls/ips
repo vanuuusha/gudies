@@ -1,6 +1,0 @@
-net - Минимальное значение диапазрна
-broadcast - Максимальное значение диапазона
-min-ip = net+1
-max-ip = broadcast - 1 (широковещательный)
-all = max-ip-min-ip
-

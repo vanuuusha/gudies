@@ -1,2 +1,8 @@
+
+On UBUNTU:
 apt install python3-virtualenv - библиотека для виртуального окружения
-python3 -m virtualenv -p python3 venv - создает виртуальное окружение
+python3 -m virtualenv venv - создает виртуальное окружение
+
+on Windows
+pip install virtualenv
+python -m virtualenv venv
