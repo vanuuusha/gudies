@@ -1,0 +1,12 @@
+Readable - чтение
+Writable - запись
+Duplex - Для чтения и записи
+Transform - Duplex, но может изменить данные по мере чтения
+
+stream = fs.createReadStream - открывает stream на чтение
+работа по событиям
+stream.on('data', callback) - событие чтения файла
+
+у модуля http
+req - readable stream, response - witrble stream
+

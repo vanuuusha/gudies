@@ -1,0 +1,10 @@
+script type="module">
+import * as say from './say.js' - импортирует все в объектв
+то что экспортируется всегда выполяется только один раз
+import {sayHi as hi, sayBye as bye} from './say.js'
+
+export default class User (один на файл)
+import Название(новое) from './user.js' - импортурует без фигурных скобок
+
+ require - для импорта модулей
+ в package json - type: module

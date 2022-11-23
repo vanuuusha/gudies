@@ -1,0 +1,20 @@
+const path = require('path');
+
+path.join() - тоже что и в питоне
+path.resolve() - абсолютный путь
+path.parse() - распарсить путь
+
+__dirname - путь к теущий директории
+__filename - путь к файла
+
+
+const fs = require('fs') - модуль для работы с файловой системой
+Sync - синхронные модули
+fs.mkdir() - создать папку 
+fs.rmdir() - удаляет папку
+fs.writeFile() - записывает в файл
+fs.appendFile() - дописывает файл
+fs.readFile() - считать файл
+fs.rm() - удалить файл
+
+

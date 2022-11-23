@@ -13,9 +13,15 @@ psql - консоль базы данных
 	CREATE USER username WITH PASSWORD 'pass'; - создать пользователя
 	ALTER USER username WITH SUPERUSER; - выдать права суперпользователя
 	CREATE DATABASE name; - создает базу данных
+	DROP TABLE name - удаляет таблицу
 	
 	\du - список пользователей
 	\c dbname - подключиться к бд
 
     CREATE TABLE request (ID SERIAL PRIMARY KEY, headers TEXT, method TEXT, initiator TEXT, url TEXT, timestamp TEXT, type TEXT, document TEXT, frame TEXT, request TEXT);
+   
+   
+   CREATE TABLE user_agent_to_user_id (USERID SERIAL PRIMARY KEY, USER_AGENT TEXT)
+
+requests=# CREATE TABLE Note (ID SERIAL PRIMARY KEY, X INTEGER, Y INTEGER, SEASSION_timestamp INTEGER, USERID INTEGER REFERENCES user_agent_to_user_id (USERID) );
 

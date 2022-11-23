@@ -1,0 +1,15 @@
+npm init - инициализарует модуль (создает package.json)
+npm install module_name
+
+
+V8 - движок у node
+Libuv - Кросплатформеность и цикл событий (все сразу ассинхронно)
+
+
+process - объекта процесса
+process.env - переменные окружения
+process.exit() - убить приложение
+
+
+
+const name = require('module_name') - импорт

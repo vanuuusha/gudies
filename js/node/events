@@ -1,0 +1,9 @@
+const Emitter = require('events') - импортируем emitter
+const emitter = new Emitter();
+
+emitter.on(название событие, callback который будет вызван) - создание события
+
+if (message) {
+	emitter.emit(названия события, аргументы) - запуск событие
+}
+
