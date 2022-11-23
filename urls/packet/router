@@ -1,0 +1,32 @@
+copy startup-config flash - сохранить во флэш память
+
+show ip route - таблица маршрутизации
+
+show ipv6 interface brief
+
+int g0/0
+	ip add ip mask
+	ipv6 add ip/prefix
+	ipv6 add FE80::1 (ipv6) link-local
+	
+configure t
+	int G0/0
+		description "" - добавить описание
+		
+	
+	security password min-length 10 - установить минимальный пароль
+	
+	crypto key generate rsa - создать надежные rsa ключи
+	
+	login block-for 180 attempts 4 within 120 - временный блок (180 сек) на тех кто потратил 4 попытки на вход в течении 120 секунд
+	
+	line vty 0 15
+		transport input ssh - вход по ssh
+		login local - профили локальных пользователей для аутефикации
+		exec-timeout 6 - таймаут на 6 минут
+	
+	no ip domain-lookup - отключает попытки роутера распознать неизвестные команды
+	ip domain-name CCNA.com - установить домен
+	
+	username any_user secret any_password - создать пользователя
+	

@@ -1,5 +1,11 @@
+для подключение нужно комп (RS 232) подключить к коммутатору
+
 enable - войти в привилегированный режим
 show runnig-config - показывает конфигурацию коммутатора
+show version - показать конфигурацию коомутатора
+show intefaces - показать инфу по интерфейсам
+show ip interface brief - показать инфу по интерфейсам
+show mac-adress-table - какой порт ведет на какой MAc adress
 
 configure terminal - переход к настройке терминала
 	hostname new_name - меняет имя 
@@ -9,15 +15,31 @@ configure terminal - переход к настройке терминала
 	banner motd "text" - добавить баннер 
 	
 	iterface vlan number - зайти в настройку vlan
-	ip addredd ip mask - добавить ip и маску
-	no shutdown - сохранить в startup
-	show ip interface brief - информация по интерфейсам
+		ip addredd ip mask - добавить ip и маску
+		no shutdown - сохранить в startup
+	
+	ip default-geteway ip - установить шлюз по умолчанию (нужен для удаленного управления коммутатором)
+	
 	no enable secret - выкл пароль
 	
-line console 0 
+	interface range F0/2-24, G0/2 - настройка диапазона интерфейсов
+		shutdown - выключить
+		no shutdown - включить
+		
+	
+line console 0 - режим настройки консоли
 	password new_password - устанавливает пароль 
 	login - на запусук коммутатора
+	
+line vty 0 4 - установить пароль на все линии vty
 
 Скопировать конфигурацию:
 	copy running-config startup-config
 	
+
+
+show line - просмотреть терминальные линии
+
+cty - консольный порт
+tty - асинхронные штучки
+line vty 0 15 - диапазон значений
