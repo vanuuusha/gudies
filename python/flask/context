@@ -3,5 +3,27 @@
 g(можно например connection с бд), current_app(приложение, которое отвечает за текущие приложение)
 Запроса:
 request, session
+request.cookies.get(cokkiename)
 
 url_for('обработчик') - Получить по названию обрабочика url адрес, содержится в current app
+
+подключиться стили в фалйе - {{ url_for('static', filename='css/style.css') }}
+
+Форма обратной связи:
+	flash(message, category='message') - создает сообщение
+	get_flshed_message() - добавляет сообщение в шаблон
+	
+
+
+res = make_response(content) - сформировать ответ с помощью функции (добавлять заголовки в http)
+res.headers["Content-Type"] = 'text/plain' 
+
+redirect(location, status) - редиректнуть пользователя
+
+
+Декораторы:
+	before_first_request - до выполнение самого первого запроса
+	before_request - выполняет до обрабочтки текущего запроса
+	after_request - выполняет после обработки запроса
+	@app.errorhandler(404) - декоратор для ошибок
+	@app.teardown_appcontext - срабатывает когда нужно удалить контекст запроса

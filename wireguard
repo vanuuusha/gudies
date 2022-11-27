@@ -1,0 +1,2 @@
+wg-quick up peer8 - запуск (в etc/wireguard)
+wg-quick down wg0-client - отключение
