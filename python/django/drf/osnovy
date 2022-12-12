@@ -1,0 +1,14 @@
+from rest_framework import generics - импортирует модуль для представлений
+
+для представлений:
+class WomenAPIView(generics.ListAPIView):
+	queryset = Women.objects.all() - какие данные
+	serializer_class = класс-сериализатор
+	
+	
+для сериализаторов:
+from rest_framework import serializers
+class WomenSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Women
+		fields = ('title', 'cat_id')
